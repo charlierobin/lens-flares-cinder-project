@@ -19,6 +19,9 @@
 		0DDED06BB8924D6B9E6818CA /* LensFlaresCinderProjectApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60C8BB241982462B9686C1BD /* LensFlaresCinderProjectApp.cpp */; };
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		CB9C402425614A4700D014C4 /* earth-texture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CB9C402325614A4700D014C4 /* earth-texture.jpg */; };
+		CB9C402625615CEA00D014C4 /* black-and-white-diagonal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CB9C402525615CEA00D014C4 /* black-and-white-diagonal.jpg */; };
+		CB9C4028256164C600D014C4 /* grey-scale-photo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CB9C4027256164C600D014C4 /* grey-scale-photo.jpg */; };
 		CBE05C892560412D006BC8F7 /* LensFlare.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBE05C872560412D006BC8F7 /* LensFlare.cpp */; };
 		CBE05C8B25604247006BC8F7 /* centre-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CBE05C8A25604247006BC8F7 /* centre-1.jpg */; };
 		FFCA25987BE147969B3CD6F2 /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = B3941EA785D941108764E0B0 /* CinderApp.icns */; };
@@ -44,6 +47,9 @@
 		8D1107320486CEB800E47090 /* LensFlaresCinderProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LensFlaresCinderProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC37027192E4488D9A6E5C92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3941EA785D941108764E0B0 /* CinderApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = CinderApp.icns; path = ../resources/CinderApp.icns; sourceTree = "<group>"; };
+		CB9C402325614A4700D014C4 /* earth-texture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "earth-texture.jpg"; path = "../resources/earth-texture.jpg"; sourceTree = "<group>"; };
+		CB9C402525615CEA00D014C4 /* black-and-white-diagonal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "black-and-white-diagonal.jpg"; path = "../resources/black-and-white-diagonal.jpg"; sourceTree = "<group>"; };
+		CB9C4027256164C600D014C4 /* grey-scale-photo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "grey-scale-photo.jpg"; path = "../resources/grey-scale-photo.jpg"; sourceTree = "<group>"; };
 		CBE05C872560412D006BC8F7 /* LensFlare.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LensFlare.cpp; path = ../src/LensFlare.cpp; sourceTree = "<group>"; };
 		CBE05C882560412D006BC8F7 /* LensFlare.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = LensFlare.hpp; path = ../src/LensFlare.hpp; sourceTree = "<group>"; };
 		CBE05C8A25604247006BC8F7 /* centre-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "centre-1.jpg"; path = "../resources/centre-1.jpg"; sourceTree = "<group>"; };
@@ -148,6 +154,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CB9C402525615CEA00D014C4 /* black-and-white-diagonal.jpg */,
+				CB9C4027256164C600D014C4 /* grey-scale-photo.jpg */,
+				CB9C402325614A4700D014C4 /* earth-texture.jpg */,
 				CBE05C8C25604252006BC8F7 /* elements */,
 				B3941EA785D941108764E0B0 /* CinderApp.icns */,
 				AC37027192E4488D9A6E5C92 /* Info.plist */,
@@ -227,6 +236,9 @@
 			files = (
 				CBE05C8B25604247006BC8F7 /* centre-1.jpg in Resources */,
 				FFCA25987BE147969B3CD6F2 /* CinderApp.icns in Resources */,
+				CB9C4028256164C600D014C4 /* grey-scale-photo.jpg in Resources */,
+				CB9C402625615CEA00D014C4 /* black-and-white-diagonal.jpg in Resources */,
+				CB9C402425614A4700D014C4 /* earth-texture.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
