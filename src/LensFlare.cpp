@@ -1,109 +1,241 @@
 #include "LensFlare.hpp"
+#include "LensFlareElement.hpp"
+
+using namespace ci;
+using namespace ci::app;
+using namespace std;
 
 LensFlare::LensFlare()
 {
-    Surface img = loadImage( loadResource( "centre-1.jpg" ) );
+    axis_ = vec2( getWindowSize().x / 2, getWindowSize().y / 2 );
     
-    texture_ = gl::Texture::create( img );
-    
-    //
-    
-    fallOff_ = FallOffs::image;
-    
-    m_fallOffPoint = vec2( getWindowWidth() / 2, getWindowHeight() / 2 );
-    m_fallOffRadius = 150.0f;
-    
-    Surface surfaceOriginal = loadImage( loadResource( "grey-scale-photo.jpg" ) );
-    
-    Surface surfaceResized = Surface8u( getWindowWidth(), getWindowHeight(), false );
-    
-    ip::resize( surfaceOriginal, &surfaceResized );
-    
-    intensityMap_ = &surfaceResized;
+    fallOff_ = nullptr;
+}
+
+void LensFlare::addFallOff( LensFlareFallOff * newValue )
+{
+    fallOff_ = newValue;
+}
+
+void LensFlare::add( LensFlareElement * element)
+{
+    elements_.push_back( element );
 }
 
 void LensFlare::setPosition( vec2 position )
 {
-    m_position = position;
+    position_ = position;
 }
 
-void LensFlare::setMask( Surface* newMap )
+void LensFlare::setAxis( vec2 position )
 {
-    intensityMap_ = newMap;
+    axis_ = position;
 }
 
-// draw with float -> intensity, draw with surface -> mask
+float LensFlare::getIntensity()
+{
+    return intensity_;
+}
+
+float LensFlare::getComputedIntensity()
+{
+    return computedIntensity_;
+}
+
+void LensFlare::setIntensity( float newValue )
+{
+    intensity_ = newValue;
+}
+
+cinder::vec2 LensFlare::getPosition()
+{
+    return position_;
+}
+
+cinder::vec2 LensFlare::getAxis()
+{
+    return axis_;
+}
+
+float LensFlare::getAngle()
+{
+    return angle_;
+}
+
+void LensFlare::setAngle( float newValue )
+{
+    angle_ = newValue;
+}
+
+void LensFlare::setInvertFallOff( bool newValue )
+{
+    invertFallOff_ = newValue;
+}
+
+float LensFlare::getDistanceFromCentre()
+{
+    float xCentre = axis_.x;
+    float yCentre = axis_.y;
+    
+    return hypot( xCentre - position_.x, yCentre - position_.y );
+}
+
+float LensFlare::getAngleFromCentre()
+{
+    float xCentre = axis_.x;
+    float yCentre = axis_.y;
+    
+    return atan2( yCentre - position_.y, xCentre - position_.x );
+}
+
+float LensFlare::scaleBetween( float value, float upper, float lower )
+{
+    if ( value <= upper && value >= lower )
+    {
+        return ( value - lower ) / ( upper - lower );
+    }
+    else if ( value < lower )
+    {
+        return 0.0;
+    }
+    return 1.0;
+}
+
+vec2 LensFlare::getPositionOnAxis( float distanceOnAxis )
+{
+    float x = 0;
+    float y = 0;
+    
+    float xOpposite = 0;
+    float yOpposite = 0;
+    
+    float angle = 0;
+    
+    if ( position_.x < axis_.x && position_.y < axis_.y )
+    {
+        // top left
+        
+        x = axis_.x - position_.x;
+        y = axis_.y - position_.y;
+        
+        xOpposite = axis_.x + x;
+        yOpposite = axis_.y + y;
+    }
+    else if ( position_.x < axis_.x && position_.y > axis_.y )
+    {
+        // bottom left
+        
+        x = axis_.x - position_.x;
+        y = position_.y - axis_.y;
+        
+        xOpposite = axis_.x + x;
+        yOpposite = axis_.y - y;
+    }
+    else if ( position_.x > axis_.x && position_.y < axis_.y )
+    {
+        // top right
+        
+        x = position_.x - axis_.x;
+        y = axis_.y - position_.y;
+        
+        xOpposite = axis_.x - x;
+        yOpposite = axis_.y + y;
+    }
+    else
+    {
+        // bottom right
+        
+        x = position_.x - axis_.x;
+        y = position_.y - axis_.y;
+        
+        xOpposite = axis_.x - x;
+        yOpposite = axis_.y - y;
+    }
+    
+    angle = atan2( y, x );
+    
+    float lengthOfAxis = 2 * hypot( x, y );
+    
+    float otherAngle = ( 3.14 / 2.0 ) - angle;
+    
+    float elementDistanceOnAxis = lengthOfAxis * distanceOnAxis;
+    
+    if ( position_.x < axis_.x && position_.y < axis_.y )
+    {
+        return vec2( position_.x + sin( otherAngle ) * elementDistanceOnAxis, position_.y + cos( otherAngle ) * elementDistanceOnAxis );
+    }
+    else if ( position_.x < axis_.x && position_.y > axis_.y )
+    {
+        return vec2( position_.x + sin( otherAngle ) * elementDistanceOnAxis, position_.y - cos( otherAngle ) * elementDistanceOnAxis);
+    }
+    else if ( position_.x > axis_.x && position_.y < axis_.y )
+    {
+        return vec2( position_.x - sin( otherAngle ) * elementDistanceOnAxis, position_.y + cos( otherAngle ) * elementDistanceOnAxis );
+    }
+    else
+    {
+        return vec2( position_.x - sin( otherAngle ) * elementDistanceOnAxis, position_.y - cos( otherAngle ) * elementDistanceOnAxis );
+    }
+}
+
+void LensFlare::windowResized()
+{
+    if ( ! fallOff_ ) return;
+    
+    fallOff_->windowResized();
+}
+
+// draw with float -> intensity, draw with surface -> mask, to provide immediate rather than setting up FallOff etc ... ?
 
 void LensFlare::draw()
 {
-    // falloffs: from a point, above/below a horiz, left/right a vertical, a rect, a circle, texture ... manual ?
-    
-    switch ( fallOff_ ) {
-            
-        case FallOffs::point:
-        {
-            float distance = sqrt( pow ( m_position.x - m_fallOffPoint.x, 2 ) + pow ( m_position.y - m_fallOffPoint.y, 2 ) );
-            
-            intensity_ = distance  / 200.0f;
-            
-            break;
-        }
-            
-        case FallOffs::circle:
-        {
-            float distance = sqrt( pow ( m_position.x - m_fallOffPoint.x, 2 ) + pow ( m_position.y - m_fallOffPoint.y, 2 ) );
-            
-            if ( distance > m_fallOffRadius )
-            {
-                intensity_ = 1.0f;
-            }
-            else
-            {
-                intensity_ = 0.0f;
-            }
-            
-            break;
-        }
-            
-        case FallOffs::image:
-        {
-            auto sample = intensityMap_->getPixel( m_position );
-            
-            intensity_ = sample.r / 255.0f;
-            
-            break;
-        }
-            
-        case FallOffs::none:
-        {
-            // nothing
-        }
+    if ( fallOff_ )
+    {
+        computedIntensity_ = intensity_ * fallOff_->calculate( position_ );
+        
+        if ( invertFallOff_ ) computedIntensity_ = intensity_ - computedIntensity_;
+    }
+    else
+    {
+        computedIntensity_ = intensity_;
     }
     
-    if ( invert ) intensity_ = 1.0f - intensity_;
-    
-    float scaledWidth = 1024 * intensity_;
-    float scaledHeight = 1024 * intensity_;
-    
     gl::setMatricesWindow( getWindowSize() );
+    
+    gl::disableDepthRead();
+    gl::disableDepthWrite();
     
     gl::disableAlphaBlending();
     
     gl::enableAdditiveBlending();
     
-    cinder::gl::color( 1.0, 1.0, 1.0, 1.0 );
+    cinder::gl::color( 1, 1, 1, 1 );
     
-    gl::pushModelView();
-    
-    gl::translate( m_position.x, m_position.y );
-    
-    gl::translate( - scaledWidth / 2, - scaledHeight / 2 );
-    
-    gl::draw( texture_, Rectf( 0, 0, scaledWidth, scaledHeight ) );
+    for ( auto element : elements_ )
+    {
+        gl::ScopedModelMatrix scope;
+        
+        element->draw( this );
+    }
     
     gl::enableAlphaBlending();
-    
-    gl::popModelView();
 }
+
+void LensFlare::drawDebug()
+{
+    gl::setMatricesWindow( getWindowSize() );
+    
+    gl::disableDepthRead();
+    gl::disableDepthWrite();
+    
+    cinder::gl::color( 1, 1, 1, 1 );
+    
+    // might draw some stuff here one day ...
+    
+    if ( ! fallOff_ ) return;
+    
+    fallOff_->drawDebug();
+}
+
 
 

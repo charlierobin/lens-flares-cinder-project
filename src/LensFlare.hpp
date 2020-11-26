@@ -4,11 +4,10 @@
 #include "cinder/app/App.h"
 #include "cinder/app/RendererGl.h"
 #include "cinder/gl/gl.h"
-#include "cinder/ip/Resize.h"
 
-using namespace ci;
-using namespace ci::app;
-using namespace std;
+#include "LensFlareFallOff.hpp"
+
+class LensFlareElement;
 
 class LensFlare {
     
@@ -16,37 +15,50 @@ public:
     
     LensFlare();
     
+    void add( LensFlareElement * );
+    
     void draw();
+    void drawDebug();
     
-    void setPosition( vec2 );
+    void setPosition( cinder::vec2 );
+    void setAxis( cinder::vec2 );
     
-    void setMask( Surface* );
+    void addFallOff( LensFlareFallOff * );
+    void setInvertFallOff( bool );
+    
+    float getIntensity();
+    void setIntensity( float );
+    
+    float getComputedIntensity();
+    
+    cinder::vec2 getPosition();
+    cinder::vec2 getAxis();
+    
+    float getAngle();
+    void setAngle( float );
+    
+    cinder::vec2 getPositionOnAxis( float );
+    
+    float getDistanceFromCentre();
+    float getAngleFromCentre();
+    float scaleBetween( float, float, float );
+    
+    void windowResized();
     
 private:
     
-    vec2 m_position;
+    cinder::vec2 position_;
+    cinder::vec2 axis_;
+    float angle_ = 0.0;
+    
+    std::vector<LensFlareElement *> elements_;
     
     float intensity_ = 1.0;
+    float computedIntensity_ = 0.0;
     
-    gl::Texture2dRef texture_;
+    LensFlareFallOff * fallOff_;
     
-    bool invert = true;
-    
-    enum class FallOffs {
-        
-        none,
-        point,
-        circle,
-        image
-        
-    };
-    
-    FallOffs fallOff_ = FallOffs::none;
-    
-    vec2 m_fallOffPoint;
-    float m_fallOffRadius;
-    
-    Surface* intensityMap_;
+    bool invertFallOff_ = false;
 };
 
 #endif /* LensFlare_hpp */
