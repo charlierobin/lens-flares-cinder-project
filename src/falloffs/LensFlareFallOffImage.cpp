@@ -3,6 +3,11 @@
 using namespace ci;
 using namespace ci::app;
 
+LensFlareFallOffImage::LensFlareFallOffImage()
+{
+    radius_ = 5;
+}
+
 LensFlareFallOffImage::LensFlareFallOffImage( std::string resourceName )
 {
     radius_ = 5;

@@ -49,12 +49,12 @@ private:
     
     cinder::vec2 position_;
     cinder::vec2 axis_;
-    float angle_ = 0.0;
+    float angle_ = 0;
     
     std::vector<LensFlareElement *> elements_;
     
-    float intensity_ = 1.0;
-    float computedIntensity_ = 0.0;
+    float intensity_ = 1;
+    float computedIntensity_ = 0;
     
     LensFlareFallOff * fallOff_;
     

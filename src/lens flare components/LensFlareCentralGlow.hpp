@@ -11,7 +11,7 @@ public:
     
     void draw( LensFlare * ) override;
     
-    float scale_ = 0.5f;
+    float scale_ = 0.5;
     
     cinder::gl::Texture2dRef texture_;
     

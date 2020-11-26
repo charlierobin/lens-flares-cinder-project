@@ -8,6 +8,7 @@
 
 #include "LensFlareFallOffPoint.hpp"
 #include "LensFlareFallOffImage.hpp"
+#include "LensFlareFallOffImagePointer.hpp"
 #include "LensFlareFallOffCircle.hpp"
 #include "LensFlareFallOffEdges.hpp"
 
@@ -37,11 +38,15 @@ private:
     gl::GlslProgRef stockLambertWithTextureShader_;
     gl::Texture2dRef texture_;
     
-    bool showMask_ = false;
+    bool showDebug_ = false;
+    bool stopRenderHere_ = false;
+    bool invertFallOff_ = false;
     
     int clickSetsLight_ = 1;
     
-    LensFlare* flare;
+    LensFlare * flare_;
+    
+    LensFlareFallOffImagePointer * mask_;
     
     float intensity_;
     float angle_;
@@ -74,22 +79,27 @@ void LensFlaresCinderProjectApp::setup()
     maskSphere_ = gl::Batch::create( geom::Sphere().subdivisions( 24 ).radius( radius ), stockColourOnlyShader_ );
     
     
-    flare = new CustomLensFlare();
+    flare_ = new CustomLensFlare();
     
-    flare->setPosition( vec2( getWindowWidth() / 2, getWindowHeight() / 2 ) );
+    flare_->setPosition( vec2( getWindowWidth() - 100, 100 ) );
     
-    intensity_ = flare->getIntensity();
+    intensity_ = flare_->getIntensity();
     
-    angle_ = flare->getAngle();
+    angle_ = flare_->getAngle();
     
     
-//    flare->addFallOff( new LensFlareFallOffPoint() );
+//    flare_->addFallOff( new LensFlareFallOffPoint() );
     
-//    flare->addFallOff( new LensFlareFallOffCircle() );
+//    flare_->addFallOff( new LensFlareFallOffCircle() );
 
-//    flare->addFallOff( new LensFlareFallOffEdges() );
+//    flare_->addFallOff( new LensFlareFallOffEdges() );
     
-    flare->addFallOff( new LensFlareFallOffImage( "black-and-white-diagonal.jpg" ) );
+//    flare_->addFallOff( new LensFlareFallOffImage( "black-and-white-diagonal.jpg" ) );
+    
+
+    mask_ = new LensFlareFallOffImagePointer();
+    
+    flare_->addFallOff( mask_ );
 }
 
 void LensFlaresCinderProjectApp::mouseDown( MouseEvent event )
@@ -100,22 +110,22 @@ void LensFlaresCinderProjectApp::mouseDown( MouseEvent event )
     {
         if ( altWasDownWhenMouseFirstClicked_ )
         {
-            flare->setAxis( event.getPos() );
+            flare_->setAxis( event.getPos() );
         }
         else
         {
-            flare->setPosition( event.getPos() );
+            flare_->setPosition( event.getPos() );
         }
     }
     else
     {
         if ( altWasDownWhenMouseFirstClicked_ )
         {
-            flare->setPosition( event.getPos() );
+            flare_->setPosition( event.getPos() );
         }
         else
         {
-            flare->setAxis( event.getPos() );
+            flare_->setAxis( event.getPos() );
         }
     }
 }
@@ -126,34 +136,34 @@ void LensFlaresCinderProjectApp::mouseDrag( MouseEvent event )
     {
         if ( altWasDownWhenMouseFirstClicked_ )
         {
-            flare->setAxis( event.getPos() );
+            flare_->setAxis( event.getPos() );
         }
         else
         {
-            flare->setPosition( event.getPos() );
+            flare_->setPosition( event.getPos() );
         }
     }
     else
     {
         if ( altWasDownWhenMouseFirstClicked_ )
         {
-            flare->setPosition( event.getPos() );
+            flare_->setPosition( event.getPos() );
         }
         else
         {
-            flare->setAxis( event.getPos() );
+            flare_->setAxis( event.getPos() );
         }
     }
 }
 
 void LensFlaresCinderProjectApp::keyDown( KeyEvent event )
 {
-    if ( event.getCode() == KeyEvent::KEY_SPACE ) showMask_ = ! showMask_;
+    if ( event.getCode() == KeyEvent::KEY_SPACE ) showDebug_ = ! showDebug_;
 }
 
 void LensFlaresCinderProjectApp::resize()
 {
-    flare->windowResized();
+    flare_->windowResized();
     
     camera_.setAspectRatio( getWindowAspectRatio() );
 }
@@ -163,16 +173,23 @@ void LensFlaresCinderProjectApp::draw()
     ImGui::RadioButton( "Click sets light", &clickSetsLight_, 1 );
     ImGui::RadioButton( "Click sets axis", &clickSetsLight_, 0 );
     
-    ImGui::Checkbox( "Show mask", &showMask_ );
+    ImGui::Text( "(Or hold down ALT when clicking & dragging)" );
     
     ImGui::Separator();
+    
+    ImGui::Checkbox( "Show debug", &showDebug_ );
+    ImGui::Checkbox( "Render mask", &stopRenderHere_ );
+    
+    ImGui::Separator();
+    
+    ImGui::Checkbox( "Invert falloff", &invertFallOff_ );
     
     ImGui::SliderFloat( "Intensity", &intensity_, 0.0, 5.0 );
     ImGui::SliderAngle( "Angle", &angle_ );
     
     // render mask
     
-    gl::clear( Color( 0, 0, 0 ) );
+    gl::clear( Color( 1, 1, 1 ) );
     
     gl::enableDepthRead();
     gl::enableDepthWrite();
@@ -181,16 +198,17 @@ void LensFlaresCinderProjectApp::draw()
     
     gl::pushModelMatrix();
     
+    gl::color( 0, 0, 0 );
+    
     maskSphere_->draw();
     
-    // TODO
     
-//    if ( showMask_ ) return;
-    
-//    Surface mask = copyWindowSurface();
+    if ( stopRenderHere_ ) return;
     
     
-//    flare->setMask( &mask );
+    Surface renderedMask = copyWindowSurface();
+    
+    mask_->set( & renderedMask );
     
     
     // render beauty pass
@@ -205,16 +223,17 @@ void LensFlaresCinderProjectApp::draw()
     
     gl::setMatricesWindow( getWindowSize() );
     
-    flare->setIntensity( intensity_ );
-    flare->setAngle( angle_ );
+    flare_->setIntensity( intensity_ );
+    flare_->setAngle( angle_ );
+    flare_->setInvertFallOff( invertFallOff_ );
     
-    if ( showMask_ )
+    if ( showDebug_ )
     {
-        flare->drawDebug();
+        flare_->drawDebug();
     }
     else
     {
-        flare->draw();
+        flare_->draw();
     }
 }
 

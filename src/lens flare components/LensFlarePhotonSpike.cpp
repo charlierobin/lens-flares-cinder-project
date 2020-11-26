@@ -11,7 +11,7 @@ LensFlarePhotonSpike::LensFlarePhotonSpike()
     
     angle_ = randFloat( 0, 3.14 * 2 );
     
-    scale_ = randFloat( 0.7, 1.5 );
+    scale_ = randFloat( 0.7, 1.1 );
 }
 
 void LensFlarePhotonSpike::draw( LensFlare * flare )

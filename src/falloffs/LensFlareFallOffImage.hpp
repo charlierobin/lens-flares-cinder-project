@@ -9,11 +9,13 @@ class LensFlareFallOffImage : public LensFlareFallOff {
     
 public:
     
+    LensFlareFallOffImage();
     LensFlareFallOffImage( std::string );
     
     float calculate( cinder::vec2 ) override;
     
     void setImage( cinder::Surface );
+    
     void setImage( std::string );
     
     void drawDebug() override;

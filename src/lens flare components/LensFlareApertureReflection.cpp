@@ -20,7 +20,7 @@ void LensFlareApertureReflection::draw( LensFlare * flare )
     if ( x >= 0 && x <= getWindowWidth() && y >= 0 && y <= getWindowHeight() ) return;
     if ( x <  -100 || x > getWindowWidth() + 100 || y <  -100 || y > getWindowHeight() + 100 ) return;
     
-    gl::pushModelView();
+    gl::ScopedModelMatrix scope;
     
     if ( x < 0 && x >= -100 )
     {
@@ -55,8 +55,6 @@ void LensFlareApertureReflection::draw( LensFlare * flare )
     }
     
     gl::draw( texture_, Rectf( 0, - scaledHeight / 2, scaledWidth, scaledHeight / 2 ) );
-    
-    gl::popModelView();
 }
 
 float LensFlareApertureReflection::calculateScale( float value )

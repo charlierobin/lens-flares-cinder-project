@@ -3,10 +3,10 @@
 CustomLensFlare::CustomLensFlare()
 {
     add( new LensFlareCentralGlow() );
-    add( new LensFlarePolygonSpread( 5 ) );
+    add( new LensFlarePolygonSpread( 11 ) );
     add( new LensFlareStripe() );
     add( new LensFlareApertureReflection() );
-    add( new LensFlarePhotonSpikes( 5 ) );
+//    add( new LensFlarePhotonSpikes( 5 ) );
     add( new LensFlareChromaHoop() );
     add( new LensFlareChromaFans() );
 }

@@ -14,9 +14,7 @@ void LensFlareStripe::draw( LensFlare * flare )
     float scaled = scale_ * 1024 * flare->getComputedIntensity();
     
     gl::translate( flare->getPosition() );
-    
-//    gl::translate( - scaled / 2, - scaled / 2 );
-    
+        
     gl::rotate( flare->getAngle() );
     
     gl::draw( texture_, Rectf( - scaled / 2, - scaled / 2, scaled / 2, scaled / 2 ) );

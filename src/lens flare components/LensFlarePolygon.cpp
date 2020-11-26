@@ -9,9 +9,9 @@ LensFlarePolygon::LensFlarePolygon()
     
     texture_ = gl::Texture::create( img );
     
-    positionOnAxis_ = randFloat( 0.05, 1.1 );
+    positionOnAxis_ = randFloat( 0.1, 1.0 );
     
-    scale_ = randFloat( 0.2, 0.5 );
+    scale_ = randFloat( 0.1, 0.3 );
 }
 
 void LensFlarePolygon::draw( LensFlare * flare )
