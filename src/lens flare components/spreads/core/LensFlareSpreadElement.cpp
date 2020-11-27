@@ -5,7 +5,11 @@ using namespace ci::app;
 
 LensFlareSpreadElement::LensFlareSpreadElement( std::string resourceName )
 {
-    positionOnAxis_ = randFloat( 0.1, 1.0 );
+    // 1 is at exact opposite of axis, 0 is on the light point, 0.5 centre between light and opposite end of axis, ie: axis point
+    
+    positionOnAxis_ = randFloat( 0.1, 2 );
+    
+//    positionOnAxis_ = 0.5;
     
     scale_ = randFloat( 0.1, 0.3 );
     

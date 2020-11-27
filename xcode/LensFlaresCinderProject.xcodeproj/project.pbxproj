@@ -73,6 +73,8 @@
 		CBE630C1257144830071E6E1 /* pollux-raw.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CBE630BE257144830071E6E1 /* pollux-raw.jpg */; };
 		CBE630C5257144CC0071E6E1 /* LensFlarePollux.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBE630C3257144CC0071E6E1 /* LensFlarePollux.cpp */; };
 		CBEA706625701B0A0085E5AE /* LensFlareFallOffImagePointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBEA706425701B0A0085E5AE /* LensFlareFallOffImagePointer.cpp */; };
+		CBEBB2C625719264001F2C35 /* sundog-centre.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CBEBB2C525719264001F2C35 /* sundog-centre.jpg */; };
+		CBEDFC8A2571826A007185FA /* sundog-side.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CBEDFC892571826A007185FA /* sundog-side.jpg */; };
 		FFCA25987BE147969B3CD6F2 /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = B3941EA785D941108764E0B0 /* CinderApp.icns */; };
 /* End PBXBuildFile section */
 
@@ -182,6 +184,8 @@
 		CBE630C4257144CC0071E6E1 /* LensFlarePollux.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = LensFlarePollux.hpp; path = "../src/lens flare components/LensFlarePollux.hpp"; sourceTree = "<group>"; };
 		CBEA706425701B0A0085E5AE /* LensFlareFallOffImagePointer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LensFlareFallOffImagePointer.cpp; path = ../src/falloffs/LensFlareFallOffImagePointer.cpp; sourceTree = "<group>"; };
 		CBEA706525701B0A0085E5AE /* LensFlareFallOffImagePointer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = LensFlareFallOffImagePointer.hpp; path = ../src/falloffs/LensFlareFallOffImagePointer.hpp; sourceTree = "<group>"; };
+		CBEBB2C525719264001F2C35 /* sundog-centre.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "sundog-centre.jpg"; path = "../resources/sundog-centre.jpg"; sourceTree = "<group>"; };
+		CBEDFC892571826A007185FA /* sundog-side.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "sundog-side.jpg"; path = "../resources/sundog-side.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -417,6 +421,8 @@
 		CBE05C8C25604252006BC8F7 /* elements */ = {
 			isa = PBXGroup;
 			children = (
+				CBEBB2C525719264001F2C35 /* sundog-centre.jpg */,
+				CBEDFC892571826A007185FA /* sundog-side.jpg */,
 				CBE630C22571448C0071E6E1 /* pollux */,
 				CB5A0D812570ECB7002E11F8 /* disc.jpg */,
 				CB5A0D822570ECB7002E11F8 /* glow.jpg */,
@@ -502,6 +508,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBEDFC8A2571826A007185FA /* sundog-side.jpg in Resources */,
 				CBE05C8B25604247006BC8F7 /* centre-1.jpg in Resources */,
 				CB5A0D892570ECB7002E11F8 /* random-fan.jpg in Resources */,
 				CB63438D257041E800B4B4B2 /* ring.jpg in Resources */,
@@ -522,6 +529,7 @@
 				CB4F3CC6256EDEA800ABA833 /* chroma-hoop.jpg in Resources */,
 				CB8C68B2256EB1C200546D06 /* octagon.jpg in Resources */,
 				CB9C402625615CEA00D014C4 /* black-and-white-diagonal.jpg in Resources */,
+				CBEBB2C625719264001F2C35 /* sundog-centre.jpg in Resources */,
 				CB9C402425614A4700D014C4 /* earth-texture.jpg in Resources */,
 				CB63438C257041E800B4B4B2 /* filled-ring.jpg in Resources */,
 				CBE630C0257144830071E6E1 /* pollux-mono-bg.jpg in Resources */,
