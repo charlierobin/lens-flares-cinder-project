@@ -12,7 +12,7 @@ LensFlareCentralRing::LensFlareCentralRing()
 
 void LensFlareCentralRing::draw( LensFlare * flare )
 {
-    float scaled = size_ * flare->getComputedIntensity();
+    float scaled = scale_ * texture_->getWidth() * flare->getComputedIntensity();
     
     gl::translate( flare->getPosition() );
     

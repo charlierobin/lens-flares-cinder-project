@@ -12,12 +12,10 @@ LensFlareCentralRingFilled::LensFlareCentralRingFilled()
 
 void LensFlareCentralRingFilled::draw( LensFlare * flare )
 {
-    float scaled = size_ * flare->getComputedIntensity();
+    float scaled = scale_ * texture_->getWidth() * flare->getComputedIntensity();
     
     gl::translate( flare->getPosition() );
     
     gl::draw( texture_, Rectf( - scaled / 2, - scaled / 2, scaled / 2, scaled / 2 ) );
 }
-
-
 

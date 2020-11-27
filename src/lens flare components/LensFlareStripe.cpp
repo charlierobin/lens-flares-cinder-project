@@ -11,7 +11,7 @@ LensFlareStripe::LensFlareStripe()
 
 void LensFlareStripe::draw( LensFlare * flare )
 {
-    float scaled = scale_ * 1024 * flare->getComputedIntensity();
+    float scaled = scale_ * texture_->getWidth() * flare->getComputedIntensity();
     
     gl::translate( flare->getPosition() );
         

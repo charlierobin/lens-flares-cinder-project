@@ -11,8 +11,7 @@ LensFlareApertureReflection::LensFlareApertureReflection()
 
 void LensFlareApertureReflection::draw( LensFlare * flare )
 {
-    float scaledWidth = 512 * scale_ * flare->getIntensity();
-    float scaledHeight = 512 * scale_ * flare->getIntensity();
+    float scaled = texture_->getWidth() * scale_ * flare->getIntensity();
     
     float x = flare->getPosition().x;
     float y = flare->getPosition().y;
@@ -26,35 +25,31 @@ void LensFlareApertureReflection::draw( LensFlare * flare )
     {
         gl::translate( 0, y );
         
-        scaledWidth = scaledWidth * calculateScale( x );
-        scaledHeight = scaledHeight * calculateScale( x );
+        scaled = scaled * calculateScale( x );
     }
     else if ( x > getWindowWidth() && x <= getWindowWidth() + 100 )
     {
         gl::translate( getWindowWidth(), y );
         gl::rotate( 3.14 );
         
-        scaledWidth = scaledWidth * calculateScale( x - getWindowWidth() );
-        scaledHeight = scaledHeight * calculateScale( x - getWindowWidth() );
+        scaled = scaled * calculateScale( x - getWindowWidth() );
     }
     else if ( y < 0 && y >= -100 )
     {
         gl::translate( x, 0 );
         gl::rotate( 3.14 / 2 );
         
-        scaledWidth = scaledWidth * calculateScale( y );
-        scaledHeight = scaledHeight * calculateScale( y );
+        scaled = scaled * calculateScale( y );
     }
     else if ( y > getWindowHeight() && y <= getWindowHeight() + 100 )
     {
         gl::translate( x, getWindowHeight() );
         gl::rotate( ( 3.14 * 2 ) * 0.75 );
         
-        scaledWidth = scaledWidth * calculateScale( y - getWindowHeight() );
-        scaledHeight = scaledHeight * calculateScale( y - getWindowHeight() );
+        scaled = scaled * calculateScale( y - getWindowHeight() );
     }
     
-    gl::draw( texture_, Rectf( 0, - scaledHeight / 2, scaledWidth, scaledHeight / 2 ) );
+    gl::draw( texture_, Rectf( 0, - scaled / 2, scaled, scaled / 2 ) );
 }
 
 float LensFlareApertureReflection::calculateScale( float value )

@@ -12,7 +12,7 @@ LensFlareChromaFans::LensFlareChromaFans()
 
 void LensFlareChromaFans::draw( LensFlare * flare )
 {
-    float scaled = 512 * scale_ * flare->getComputedIntensity();
+    float scaled = texture_->getWidth() * scale_ * flare->getComputedIntensity();
     
     float radius = flare->getComputedIntensity() * 300;
     
@@ -29,7 +29,6 @@ void LensFlareChromaFans::draw( LensFlare * flare )
         
         
         gl::draw( texture_, Rectf( - scaled / 2, - scaled / 2, scaled / 2, scaled / 2 ) );
-        
     }
     
     {

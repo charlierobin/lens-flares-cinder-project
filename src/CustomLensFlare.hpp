@@ -11,6 +11,9 @@
 #include "LensFlareCentralPolySpike.hpp"
 #include "LensFlareCentralRandomFan.hpp"
 
+#include "LensFlarePollux.hpp"
+
+
 #include "LensFlareSpreadPentagons.hpp"
 #include "LensFlareSpreadOctagons.hpp"
 #include "LensFlareSpreadCircles.hpp"

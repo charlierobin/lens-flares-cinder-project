@@ -12,7 +12,7 @@ LensFlareSunDogs::LensFlareSunDogs()
 
 void LensFlareSunDogs::draw( LensFlare * flare )
 {
-    float scaled = size_ * flare->getComputedIntensity();
+    float scaled = texture_->getWidth() * scale_ * flare->getComputedIntensity();
     
     gl::translate( flare->getPosition() );
     

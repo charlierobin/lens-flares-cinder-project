@@ -16,8 +16,8 @@ LensFlarePhotonSpike::LensFlarePhotonSpike()
 
 void LensFlarePhotonSpike::draw( LensFlare * flare )
 {
-    float scaledWidth = 1024 * scale_ * flare->getComputedIntensity();
-    float scaledHeight = 256 * scale_ * flare->getComputedIntensity();
+    float scaledWidth = texture_->getWidth() * scale_ * flare->getComputedIntensity();
+    float scaledHeight = texture_->getHeight() * scale_ * flare->getComputedIntensity();
     
     gl::ScopedModelMatrix scope;
     

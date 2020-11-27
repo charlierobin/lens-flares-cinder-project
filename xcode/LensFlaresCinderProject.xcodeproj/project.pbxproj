@@ -68,6 +68,10 @@
 		CBDAFC0C256EE848000C4371 /* LensFlareChromaFans.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBDAFC0A256EE848000C4371 /* LensFlareChromaFans.cpp */; };
 		CBE05C892560412D006BC8F7 /* LensFlare.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBE05C872560412D006BC8F7 /* LensFlare.cpp */; };
 		CBE05C8B25604247006BC8F7 /* centre-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CBE05C8A25604247006BC8F7 /* centre-1.jpg */; };
+		CBE630BF257144830071E6E1 /* pollux-mono-fg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CBE630BC257144830071E6E1 /* pollux-mono-fg.jpg */; };
+		CBE630C0257144830071E6E1 /* pollux-mono-bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CBE630BD257144830071E6E1 /* pollux-mono-bg.jpg */; };
+		CBE630C1257144830071E6E1 /* pollux-raw.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CBE630BE257144830071E6E1 /* pollux-raw.jpg */; };
+		CBE630C5257144CC0071E6E1 /* LensFlarePollux.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBE630C3257144CC0071E6E1 /* LensFlarePollux.cpp */; };
 		CBEA706625701B0A0085E5AE /* LensFlareFallOffImagePointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBEA706425701B0A0085E5AE /* LensFlareFallOffImagePointer.cpp */; };
 		FFCA25987BE147969B3CD6F2 /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = B3941EA785D941108764E0B0 /* CinderApp.icns */; };
 /* End PBXBuildFile section */
@@ -171,6 +175,11 @@
 		CBE05C872560412D006BC8F7 /* LensFlare.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LensFlare.cpp; path = ../src/LensFlare.cpp; sourceTree = "<group>"; };
 		CBE05C882560412D006BC8F7 /* LensFlare.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = LensFlare.hpp; path = ../src/LensFlare.hpp; sourceTree = "<group>"; };
 		CBE05C8A25604247006BC8F7 /* centre-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "centre-1.jpg"; path = "../resources/centre-1.jpg"; sourceTree = "<group>"; };
+		CBE630BC257144830071E6E1 /* pollux-mono-fg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "pollux-mono-fg.jpg"; path = "../resources/pollux-mono-fg.jpg"; sourceTree = "<group>"; };
+		CBE630BD257144830071E6E1 /* pollux-mono-bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "pollux-mono-bg.jpg"; path = "../resources/pollux-mono-bg.jpg"; sourceTree = "<group>"; };
+		CBE630BE257144830071E6E1 /* pollux-raw.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "pollux-raw.jpg"; path = "../resources/pollux-raw.jpg"; sourceTree = "<group>"; };
+		CBE630C3257144CC0071E6E1 /* LensFlarePollux.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LensFlarePollux.cpp; path = "../src/lens flare components/LensFlarePollux.cpp"; sourceTree = "<group>"; };
+		CBE630C4257144CC0071E6E1 /* LensFlarePollux.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = LensFlarePollux.hpp; path = "../src/lens flare components/LensFlarePollux.hpp"; sourceTree = "<group>"; };
 		CBEA706425701B0A0085E5AE /* LensFlareFallOffImagePointer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LensFlareFallOffImagePointer.cpp; path = ../src/falloffs/LensFlareFallOffImagePointer.cpp; sourceTree = "<group>"; };
 		CBEA706525701B0A0085E5AE /* LensFlareFallOffImagePointer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = LensFlareFallOffImagePointer.hpp; path = ../src/falloffs/LensFlareFallOffImagePointer.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -380,6 +389,8 @@
 				CB5A0D8F2570F156002E11F8 /* rings */,
 				CB634397257044B000B4B4B2 /* LensFlareSunDogs.cpp */,
 				CB634398257044B000B4B4B2 /* LensFlareSunDogs.hpp */,
+				CBE630C3257144CC0071E6E1 /* LensFlarePollux.cpp */,
+				CBE630C4257144CC0071E6E1 /* LensFlarePollux.hpp */,
 			);
 			name = "lens flare components";
 			sourceTree = "<group>";
@@ -406,6 +417,7 @@
 		CBE05C8C25604252006BC8F7 /* elements */ = {
 			isa = PBXGroup;
 			children = (
+				CBE630C22571448C0071E6E1 /* pollux */,
 				CB5A0D812570ECB7002E11F8 /* disc.jpg */,
 				CB5A0D822570ECB7002E11F8 /* glow.jpg */,
 				CB5A0D832570ECB7002E11F8 /* polyspike.jpg */,
@@ -425,6 +437,16 @@
 				CBE05C8A25604247006BC8F7 /* centre-1.jpg */,
 			);
 			name = elements;
+			sourceTree = "<group>";
+		};
+		CBE630C22571448C0071E6E1 /* pollux */ = {
+			isa = PBXGroup;
+			children = (
+				CBE630BC257144830071E6E1 /* pollux-mono-fg.jpg */,
+				CBE630BD257144830071E6E1 /* pollux-mono-bg.jpg */,
+				CBE630BE257144830071E6E1 /* pollux-raw.jpg */,
+			);
+			name = pollux;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -485,8 +507,10 @@
 				CB63438D257041E800B4B4B2 /* ring.jpg in Resources */,
 				CB5A0D882570ECB7002E11F8 /* polyspike.jpg in Resources */,
 				FFCA25987BE147969B3CD6F2 /* CinderApp.icns in Resources */,
+				CBE630BF257144830071E6E1 /* pollux-mono-fg.jpg in Resources */,
 				CB4F3CBB256ED77B00ABA833 /* photon-spike.jpg in Resources */,
 				CBDAFC09256EE7DF000C4371 /* fan.jpg in Resources */,
+				CBE630C1257144830071E6E1 /* pollux-raw.jpg in Resources */,
 				CB8C68B3256EB1C200546D06 /* pentagon.jpg in Resources */,
 				CB8C68B5256EB3A000546D06 /* aperture-flare.jpg in Resources */,
 				CB9E12EA256EAD1A0033DFB7 /* stripes.jpg in Resources */,
@@ -500,6 +524,7 @@
 				CB9C402625615CEA00D014C4 /* black-and-white-diagonal.jpg in Resources */,
 				CB9C402425614A4700D014C4 /* earth-texture.jpg in Resources */,
 				CB63438C257041E800B4B4B2 /* filled-ring.jpg in Resources */,
+				CBE630C0257144830071E6E1 /* pollux-mono-bg.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +535,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBE630C5257144CC0071E6E1 /* LensFlarePollux.cpp in Sources */,
 				CB9E12D7256E89CD0033DFB7 /* LensFlareSpreadPentagons.cpp in Sources */,
 				CB9EE022256FA94100A1FAD6 /* LensFlareFallOff.cpp in Sources */,
 				CBDAFC0C256EE848000C4371 /* LensFlareChromaFans.cpp in Sources */,

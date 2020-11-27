@@ -9,14 +9,14 @@ CustomLensFlare::CustomLensFlare()
     //    more basic centre elements designed for combining
     
     //    add( new LensFlareCentralGlow() );
-        add( new LensFlareCentralSpikeBall() );
+//        add( new LensFlareCentralSpikeBall() );
     //    add( new LensFlareCentralDisc() );
-        add( new LensFlareCentralPolySpike() );
+//        add( new LensFlareCentralPolySpike() );
     //    add( new LensFlareCentralRandomFan() );
     
     // rings
     
-        add( new LensFlareCentralRing() );
+//        add( new LensFlareCentralRing() );
 //        add( new LensFlareCentralRingFadingInner() );
 //        add( new LensFlareCentralRingFadingOuter() );
 //        add( new LensFlareCentralRingFilled() );
@@ -30,13 +30,13 @@ CustomLensFlare::CustomLensFlare()
     // adornments, miscellaneous
     
 //        add( new LensFlareStripe() );
-//            add( new LensFlareApertureReflection() );
-        add( new LensFlarePhotonSpikes( 15 ) );
+            add( new LensFlareApertureReflection() );
+//        add( new LensFlarePhotonSpikes( 15 ) );
 //        add( new LensFlareChromaHoop() );
-            add( new LensFlareChromaFans() );
+//            add( new LensFlareChromaFans() );
     
     
-    
+    add( new LensFlarePollux() );
     
     
     // special
