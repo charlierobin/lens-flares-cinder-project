@@ -10,6 +10,8 @@ LensFlareFallOffImagePointer::LensFlareFallOffImagePointer()
 
 float LensFlareFallOffImagePointer::calculate( vec2 position )
 {
+    // TODO behavour outside bounds ?
+    
     if ( radius_ == 0 )
     {
         auto sample = surface_->getPixel( position );

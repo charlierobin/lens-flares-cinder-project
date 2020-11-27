@@ -1,18 +1,18 @@
-#include "LensFlareCentralGlow.hpp"
+#include "LensFlareCentralDisc.hpp"
 
 using namespace ci;
 using namespace ci::app;
 
-LensFlareCentralGlow::LensFlareCentralGlow()
+LensFlareCentralDisc::LensFlareCentralDisc()
 {
-    Surface img = loadImage( loadResource( "centre-1.jpg" ) );
+    Surface img = loadImage( loadResource( "disc.jpg" ) );
     
     texture_ = gl::Texture::create( img );
 }
 
-void LensFlareCentralGlow::draw( LensFlare * flare )
+void LensFlareCentralDisc::draw( LensFlare * flare )
 {
-    float scaled = 1024 * flare->getComputedIntensity();
+    float scaled = texture_->getWidth() * scale_ * flare->getComputedIntensity();
     
     gl::translate( flare->getPosition() );
     
