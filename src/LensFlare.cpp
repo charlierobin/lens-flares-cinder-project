@@ -146,6 +146,11 @@ void LensFlare::windowResized()
     fallOff_->windowResized();
 }
 
+std::vector<LensFlareElement *> LensFlare::getElements()
+{
+    return elements_;
+}
+
 // draw with float -> intensity, draw with surface -> mask, to provide immediate rather than setting up FallOff etc ... ?
 
 void LensFlare::draw()

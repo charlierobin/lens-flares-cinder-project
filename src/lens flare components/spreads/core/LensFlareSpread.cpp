@@ -22,3 +22,27 @@ void LensFlareSpread::draw( LensFlare * flare )
     }
 }
 
+void LensFlareSpread::ui()
+{
+    if ( ImGui::TreeNode( "Spread element" ) )
+    {
+        float colourVariationRange = colourVariationRange_;
+        
+        ImGui::SliderFloat( "Variation", &colourVariationRange_, 0.0, 1.0 );
+        
+        if ( colourVariationRange_ != colourVariationRange )
+        {
+            for ( auto element : elements_ )
+            {
+                element->generateColourVariation( colourVariationRange_ );
+            }
+        }
+        
+        ImGui::Checkbox( "Use colour", &useColour_ );
+        
+        ImGui::ColorPicker3( "Colour", &colour_ );
+        
+        ImGui::TreePop();
+    }
+}
+

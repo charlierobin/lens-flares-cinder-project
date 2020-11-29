@@ -10,10 +10,10 @@ CustomLensFlare1::CustomLensFlare1() : LensFlare( "CustomLensFlare1" )
     // more basic centre elements designed for combining
     
     //add( new LensFlareCentralGlow() );
-    add( new LensFlareCentralSpikeBall() );
+//    add( new LensFlareCentralSpikeBall() );
     //add( new LensFlareCentralDisc() );
     //add( new LensFlareCentralPolySpike() );
-    add( new LensFlareCentralRandomFan() );
+//    add( new LensFlareCentralRandomFan() );
     
     // rings
     
@@ -24,7 +24,7 @@ CustomLensFlare1::CustomLensFlare1() : LensFlare( "CustomLensFlare1" )
     
     // spreads along axis from light source
     
-    add( new LensFlareSpreadPentagons( 11 ) );
+//    add( new LensFlareSpreadPentagons( 11 ) );
     //add( new LensFlareSpreadOctagons( 3 ) );
     //add( new LensFlareSpreadCircles( 5 ) );
     

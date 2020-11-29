@@ -183,6 +183,7 @@
 		CBE05C872560412D006BC8F7 /* LensFlare.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LensFlare.cpp; path = ../src/LensFlare.cpp; sourceTree = "<group>"; };
 		CBE05C882560412D006BC8F7 /* LensFlare.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = LensFlare.hpp; path = ../src/LensFlare.hpp; sourceTree = "<group>"; };
 		CBE05C8A25604247006BC8F7 /* centre-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "centre-1.jpg"; path = "../resources/centre-1.jpg"; sourceTree = "<group>"; };
+		CBE0E762257414E400100A08 /* components.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = components.hpp; path = ../src/components.hpp; sourceTree = "<group>"; };
 		CBE630BC257144830071E6E1 /* pollux-mono-fg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "pollux-mono-fg.jpg"; path = "../resources/pollux-mono-fg.jpg"; sourceTree = "<group>"; };
 		CBE630BD257144830071E6E1 /* pollux-mono-bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "pollux-mono-bg.jpg"; path = "../resources/pollux-mono-bg.jpg"; sourceTree = "<group>"; };
 		CBE630BE257144830071E6E1 /* pollux-raw.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "pollux-raw.jpg"; path = "../resources/pollux-raw.jpg"; sourceTree = "<group>"; };
@@ -237,6 +238,7 @@
 				CB816B502573882100E9DBE0 /* CustomLensFlare2.hpp */,
 				CB816B512573882100E9DBE0 /* CustomLensFlare3.cpp */,
 				CB816B522573882100E9DBE0 /* CustomLensFlare3.hpp */,
+				CBE0E762257414E400100A08 /* components.hpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";

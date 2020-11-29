@@ -4,3 +4,9 @@ void LensFlareElement::draw( LensFlare * flare )
 {
 }
 
+void LensFlareElement::ui()
+{
+    
+    
+}
+

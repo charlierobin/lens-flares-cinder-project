@@ -204,6 +204,12 @@ void LensFlaresCinderProjectApp::draw()
     
     ImGui::ColorPicker3( "Colour", &flare_->colour_ );
     
+    
+    for ( auto element : flare_->getElements() )
+    {
+        element->ui();
+    }
+    
     ImGui::End();
     
     // render mask

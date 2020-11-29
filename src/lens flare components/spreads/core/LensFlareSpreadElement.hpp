@@ -12,11 +12,15 @@ public:
     
     void draw( LensFlareSpread *, LensFlare * );
     
+    void generateColourVariation( float );
+    
 private:
     
     float positionOnAxis_ = 1;
     
     float scale_ = 1;
+    
+    float colourVariation_ = 0;
     
     float alpha_ = 0.2;
     

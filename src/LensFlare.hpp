@@ -21,22 +21,9 @@ public:
     void draw();
     void drawDebug();
     
-//    void setPosition( cinder::vec2 );
-//    void setAxis( cinder::vec2 );
-    
     void addFallOff( LensFlareFallOff * );
-//    void setInvertFallOff( bool );
-    
-//    float getIntensity();
-//    void setIntensity( float );
     
     float getComputedIntensity();
-    
-//    cinder::vec2 getPosition();
-//    cinder::vec2 getAxis();
-    
-//    float getAngle();
-//    void setAngle( float );
     
     cinder::vec2 getPositionOnAxis( float );
     
@@ -46,6 +33,7 @@ public:
     
     void windowResized();
     
+    std::vector<LensFlareElement *> getElements();
     
     std::string name_;
     

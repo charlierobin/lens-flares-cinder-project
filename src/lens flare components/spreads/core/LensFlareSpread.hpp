@@ -13,8 +13,15 @@ public:
     
     void draw( LensFlare * ) override;
     
+    void ui() override;
+    
     std::vector<LensFlareSpreadElement *> elements_;
     
+    cinder::Color colour_;
+    
+    bool useColour_ = false;
+    
+    float colourVariationRange_ = 0;
 };
 
 #endif /* LensFlareSpread_hpp */
