@@ -23,9 +23,9 @@ void LensFlarePhotonSpike::draw( LensFlare * flare )
     
     gl::ScopedColor color( 1, 1, 1, 1 );
     
-    gl::translate( flare->getPosition() );
+    gl::translate( flare->position_ );
     
-    gl::rotate( angle_ + flare->getAngle() );
+    gl::rotate( angle_ + flare->angle_ );
     
     gl::draw( texture_, Rectf( 0, - scaledHeight / 2, scaledWidth, scaledHeight / 2 ) );
 }

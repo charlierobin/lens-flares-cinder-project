@@ -1,5 +1,5 @@
-#ifndef CustomLensFlare_hpp
-#define CustomLensFlare_hpp
+#ifndef CustomLensFlare2_hpp
+#define CustomLensFlare2_hpp
 
 #include "LensFlare.hpp"
 
@@ -33,12 +33,12 @@
 
 #include "LensFlareSunDogs.hpp"
 
-class CustomLensFlare: public LensFlare {
+class CustomLensFlare2: public LensFlare {
     
 public:
     
-    CustomLensFlare();
+    CustomLensFlare2();
     
 };
 
-#endif /* CustomLensFlare_hpp */
+#endif /* CustomLensFlare2_hpp */

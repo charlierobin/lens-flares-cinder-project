@@ -31,7 +31,7 @@ void LensFlareChromaHoop::draw( LensFlare * flare )
     
     gl::ScopedModelMatrix scope;
     
-    gl::translate( flare->getAxis() );
+    gl::translate( flare->axis_ );
     
     gl::rotate( flare->getAngleFromCentre() );
     

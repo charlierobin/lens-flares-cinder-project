@@ -5,9 +5,15 @@ using namespace ci;
 using namespace ci::app;
 using namespace std;
 
-LensFlare::LensFlare()
+LensFlare::LensFlare( std::string name )
 {
+    name_ = name;
+    
+    position_ = vec2( getWindowWidth() - 100, 100 );
+    
     axis_ = vec2( getWindowSize().x / 2, getWindowSize().y / 2 );
+    
+    colour_ = Colorf( 1, 1, 1 );
     
     fallOff_ = nullptr;
 }
@@ -22,54 +28,9 @@ void LensFlare::add( LensFlareElement * element)
     elements_.push_back( element );
 }
 
-void LensFlare::setPosition( vec2 position )
-{
-    position_ = position;
-}
-
-void LensFlare::setAxis( vec2 position )
-{
-    axis_ = position;
-}
-
-float LensFlare::getIntensity()
-{
-    return intensity_;
-}
-
 float LensFlare::getComputedIntensity()
 {
     return computedIntensity_;
-}
-
-void LensFlare::setIntensity( float newValue )
-{
-    intensity_ = newValue;
-}
-
-cinder::vec2 LensFlare::getPosition()
-{
-    return position_;
-}
-
-cinder::vec2 LensFlare::getAxis()
-{
-    return axis_;
-}
-
-float LensFlare::getAngle()
-{
-    return angle_;
-}
-
-void LensFlare::setAngle( float newValue )
-{
-    angle_ = newValue;
-}
-
-void LensFlare::setInvertFallOff( bool newValue )
-{
-    invertFallOff_ = newValue;
 }
 
 float LensFlare::getDistanceFromCentre()

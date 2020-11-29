@@ -21,7 +21,7 @@ void LensFlareChromaFans::draw( LensFlare * flare )
     {
         gl::ScopedModelMatrix scope;
         
-        gl::translate( flare->getPosition() );
+        gl::translate( flare->position_ );
         
         gl::rotate( angle_ );
         
@@ -34,7 +34,7 @@ void LensFlareChromaFans::draw( LensFlare * flare )
     {
         gl::ScopedModelMatrix scope;
         
-        gl::translate( flare->getPosition() );
+        gl::translate( flare->position_ );
         
         gl::rotate( angle_ );
         

@@ -18,6 +18,8 @@ private:
     
     float scale_ = 1;
     
+    float alpha_ = 0.2;
+    
     cinder::gl::Texture2dRef texture_;
 };
 

@@ -14,9 +14,9 @@ void LensFlareCentralGlow::draw( LensFlare * flare )
 {
     float scaled = texture_->getWidth() * scale_ * flare->getComputedIntensity();
     
-    gl::translate( flare->getPosition() );
+    gl::translate( flare->position_ );
     
-    gl::rotate( flare->getAngle() );
+    gl::rotate( flare->angle_ );
     
     gl::draw( texture_, Rectf( - scaled / 2, - scaled / 2, scaled / 2, scaled / 2 ) );
 }

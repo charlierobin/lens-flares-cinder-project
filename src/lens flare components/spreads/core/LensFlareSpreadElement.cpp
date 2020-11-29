@@ -5,13 +5,15 @@ using namespace ci::app;
 
 LensFlareSpreadElement::LensFlareSpreadElement( std::string resourceName )
 {
-    // 1 is at exact opposite of axis, 0 is on the light point, 0.5 centre between light and opposite end of axis, ie: axis point
+    // 1 is at exact opposite of axis, 0 is on the light point, 0.5 centre between light and opposite end of axis, ie: axis point, lens "centre"
     
     positionOnAxis_ = randFloat( 0.1, 2 );
     
 //    positionOnAxis_ = 0.5;
     
     scale_ = randFloat( 0.1, 0.3 );
+    
+    alpha_ = randFloat( 0.1, 0.3 );
     
     Surface img = loadImage( loadResource( resourceName ) );
     
@@ -26,11 +28,11 @@ void LensFlareSpreadElement::draw( LensFlareSpread * spread, LensFlare * flare )
     
     gl::ScopedModelMatrix scope;
     
-    gl::ScopedColor color( 0.75, 0.75, 0.75, 0.2 );
+    gl::ScopedColor color( flare->colour_.r, flare->colour_.g, flare->colour_.b, alpha_ );
     
     gl::translate( position );
     
-    gl::rotate( flare->getAngle() );
+    gl::rotate( flare->angle_ );
     
     gl::draw( texture_, Rectf( - scaled / 2, - scaled / 2, scaled / 2, scaled / 2 ) );
 }

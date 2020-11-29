@@ -4,7 +4,9 @@
 
 #include "cinder/CinderImGui.h"
 
-#include "CustomLensFlare.hpp"
+#include "CustomLensFlare1.hpp"
+#include "CustomLensFlare2.hpp"
+#include "CustomLensFlare3.hpp"
 
 #include "LensFlareFallOffPoint.hpp"
 #include "LensFlareFallOffImage.hpp"
@@ -40,16 +42,15 @@ private:
     
     bool showDebug_ = false;
     bool stopRenderHere_ = false;
-    bool invertFallOff_ = false;
     
     int clickSetsLight_ = 1;
     
     LensFlare * flare_;
     
-    LensFlareFallOffImagePointer * mask_;
+    std::vector<LensFlare *> flares_;
+    std::vector<LensFlareFallOff *> falloffs_;
     
-    float intensity_;
-    float angle_;
+    LensFlareFallOffImagePointer * mask_;
     
     bool altWasDownWhenMouseFirstClicked_;
     
@@ -67,8 +68,8 @@ void LensFlaresCinderProjectApp::setup()
     camera_.lookAt( CAMERA_POSITION, CENTRE_OF_THE_WORLD );
     camera_.setFarClip( 20000 );
     
-    stockLambertWithTextureShader_ = cinder::gl::context()->getStockShader( cinder::gl::ShaderDef().texture().lambert() );
-    stockColourOnlyShader_ = cinder::gl::context()->getStockShader( cinder::gl::ShaderDef().color() );
+    stockLambertWithTextureShader_ = cinder::gl::context()->getStockShader( gl::ShaderDef().texture().lambert() );
+    stockColourOnlyShader_ = cinder::gl::context()->getStockShader( gl::ShaderDef().color() );
     
     texture_ = gl::Texture::create( loadImage( loadResource( "earth-texture.jpg" ) ) );
     
@@ -79,27 +80,25 @@ void LensFlaresCinderProjectApp::setup()
     maskSphere_ = gl::Batch::create( geom::Sphere().subdivisions( 24 ).radius( radius ), stockColourOnlyShader_ );
     
     
-    flare_ = new CustomLensFlare();
+    flares_.push_back( new CustomLensFlare1() );
+    flares_.push_back( new CustomLensFlare2() );
+    flares_.push_back( new CustomLensFlare3() );
     
-    flare_->setPosition( vec2( getWindowWidth() - 100, 100 ) );
-    
-    intensity_ = flare_->getIntensity();
-    
-    angle_ = flare_->getAngle();
+    flare_ = flares_[ 0 ];
     
     
-//    flare_->addFallOff( new LensFlareFallOffPoint() );
     
-//    flare_->addFallOff( new LensFlareFallOffCircle() );
-
-//    flare_->addFallOff( new LensFlareFallOffEdges() );
-    
-//    flare_->addFallOff( new LensFlareFallOffImage( "black-and-white-diagonal.jpg" ) );
-    
-
     mask_ = new LensFlareFallOffImagePointer();
     
-    flare_->addFallOff( mask_ );
+    for ( auto flare : flares_ )
+    {
+        //    flare->addFallOff( new LensFlareFallOffPoint() );
+        //    flare->addFallOff( new LensFlareFallOffCircle() );
+        //    flare->addFallOff( new LensFlareFallOffEdges() );
+        //    flare->addFallOff( new LensFlareFallOffImage( "black-and-white-diagonal.jpg" ) );
+        
+        flare->addFallOff( mask_ );
+    }
 }
 
 void LensFlaresCinderProjectApp::mouseDown( MouseEvent event )
@@ -110,22 +109,22 @@ void LensFlaresCinderProjectApp::mouseDown( MouseEvent event )
     {
         if ( altWasDownWhenMouseFirstClicked_ )
         {
-            flare_->setAxis( event.getPos() );
+            flare_->axis_ = event.getPos();
         }
         else
         {
-            flare_->setPosition( event.getPos() );
+            flare_->position_ = event.getPos();
         }
     }
     else
     {
         if ( altWasDownWhenMouseFirstClicked_ )
         {
-            flare_->setPosition( event.getPos() );
+            flare_->position_ = event.getPos();
         }
         else
         {
-            flare_->setAxis( event.getPos() );
+            flare_->axis_ = event.getPos();
         }
     }
 }
@@ -136,22 +135,22 @@ void LensFlaresCinderProjectApp::mouseDrag( MouseEvent event )
     {
         if ( altWasDownWhenMouseFirstClicked_ )
         {
-            flare_->setAxis( event.getPos() );
+            flare_->axis_ = event.getPos();
         }
         else
         {
-            flare_->setPosition( event.getPos() );
+            flare_->position_ = event.getPos();
         }
     }
     else
     {
         if ( altWasDownWhenMouseFirstClicked_ )
         {
-            flare_->setPosition( event.getPos() );
+            flare_->position_ = event.getPos();
         }
         else
         {
-            flare_->setAxis( event.getPos() );
+            flare_->axis_ = event.getPos();
         }
     }
 }
@@ -170,6 +169,22 @@ void LensFlaresCinderProjectApp::resize()
 
 void LensFlaresCinderProjectApp::draw()
 {
+    ImGui::Begin( "Flare controls" );
+    
+    for ( auto flare : flares_ )
+    {
+        if ( ImGui::Button( flare->name_.c_str() ) )
+        {
+            flare_ = flare;
+        }
+        
+        if ( flare == flare_ )
+        {
+            ImGui::SameLine();
+            ImGui::Text( "<<<<<" );
+        }
+    }
+    
     ImGui::RadioButton( "Click sets light", &clickSetsLight_, 1 );
     ImGui::RadioButton( "Click sets axis", &clickSetsLight_, 0 );
     
@@ -182,17 +197,20 @@ void LensFlaresCinderProjectApp::draw()
     
     ImGui::Separator();
     
-    ImGui::Checkbox( "Invert falloff", &invertFallOff_ );
+    ImGui::Checkbox( "Invert falloff", &flare_->invertFallOff_ );
     
-    ImGui::SliderFloat( "Intensity", &intensity_, 0.0, 5.0 );
-    ImGui::SliderAngle( "Angle", &angle_ );
+    ImGui::SliderFloat( "Intensity", &flare_->intensity_, 0.0, 5.0 );
+    ImGui::SliderAngle( "Angle", &flare_->angle_ );
+    
+    ImGui::ColorPicker3( "Colour", &flare_->colour_ );
+    
+    ImGui::End();
     
     // render mask
     
     gl::clear( Color( 1, 1, 1 ) );
     
-    gl::enableDepthRead();
-    gl::enableDepthWrite();
+    gl::enableDepth();
     
     gl::setMatrices( camera_ );
     
@@ -222,10 +240,6 @@ void LensFlaresCinderProjectApp::draw()
     gl::popModelMatrix();
     
     gl::setMatricesWindow( getWindowSize() );
-    
-    flare_->setIntensity( intensity_ );
-    flare_->setAngle( angle_ );
-    flare_->setInvertFallOff( invertFallOff_ );
     
     if ( showDebug_ )
     {

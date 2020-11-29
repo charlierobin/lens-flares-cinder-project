@@ -15,11 +15,11 @@ void LensFlarePollux::draw( LensFlare * flare )
 {
     float scaled = texture_->getWidth() * scale_ * flare->getComputedIntensity();
     
-    gl::translate( flare->getPosition() );
+    gl::translate( flare->position_ );
     
-    gl::rotate( flare->getAngle() );
+    gl::rotate( flare->angle_ );
     
-    gl::ScopedColor color( 1, 0, 0 );
+    gl::ScopedColor color( flare->colour_ );
     
     gl::draw( textureBG_, Rectf( - scaled / 2, - scaled / 2, scaled / 2, scaled / 2 ) );
     

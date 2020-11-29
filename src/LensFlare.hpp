@@ -13,29 +13,30 @@ class LensFlare {
     
 public:
     
-    LensFlare();
+    LensFlare() : LensFlare( "no name" ){};
+    LensFlare( std::string );
     
     void add( LensFlareElement * );
     
     void draw();
     void drawDebug();
     
-    void setPosition( cinder::vec2 );
-    void setAxis( cinder::vec2 );
+//    void setPosition( cinder::vec2 );
+//    void setAxis( cinder::vec2 );
     
     void addFallOff( LensFlareFallOff * );
-    void setInvertFallOff( bool );
+//    void setInvertFallOff( bool );
     
-    float getIntensity();
-    void setIntensity( float );
+//    float getIntensity();
+//    void setIntensity( float );
     
     float getComputedIntensity();
     
-    cinder::vec2 getPosition();
-    cinder::vec2 getAxis();
+//    cinder::vec2 getPosition();
+//    cinder::vec2 getAxis();
     
-    float getAngle();
-    void setAngle( float );
+//    float getAngle();
+//    void setAngle( float );
     
     cinder::vec2 getPositionOnAxis( float );
     
@@ -45,20 +46,23 @@ public:
     
     void windowResized();
     
-private:
+    
+    std::string name_;
     
     cinder::vec2 position_;
     cinder::vec2 axis_;
+    float intensity_ = 1;
     float angle_ = 0;
+    cinder::Color colour_;
+    bool invertFallOff_ = false;
+    
+private:
     
     std::vector<LensFlareElement *> elements_;
     
-    float intensity_ = 1;
     float computedIntensity_ = 0;
     
     LensFlareFallOff * fallOff_;
-    
-    bool invertFallOff_ = false;
 };
 
 #endif /* LensFlare_hpp */

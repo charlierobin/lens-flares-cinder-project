@@ -1,15 +1,15 @@
-#include "CustomLensFlare.hpp"
+#include "CustomLensFlare2.hpp"
 
-CustomLensFlare::CustomLensFlare()
+CustomLensFlare2::CustomLensFlare2() : LensFlare( "CustomLensFlare2" )
 {
     // "prefab" centres
     
-    //add( new LensFlareCentrePreComp1() );
-    add( new LensFlarePollux() );
+    add( new LensFlareCentrePreComp1() );
+//    add( new LensFlarePollux() );
     
     // more basic centre elements designed for combining
     
-    //add( new LensFlareCentralGlow() );
+    add( new LensFlareCentralGlow() );
     //add( new LensFlareCentralSpikeBall() );
     //add( new LensFlareCentralDisc() );
     //add( new LensFlareCentralPolySpike() );
@@ -24,22 +24,22 @@ CustomLensFlare::CustomLensFlare()
     
     // spreads along axis from light source
     
-    add( new LensFlareSpreadPentagons( 11 ) );
-    //add( new LensFlareSpreadOctagons( 3 ) );
+//    add( new LensFlareSpreadPentagons( 11 ) );
+    add( new LensFlareSpreadOctagons( 20 ) );
     //add( new LensFlareSpreadCircles( 5 ) );
     
     // adornments, miscellaneous
     
-    //add( new LensFlareStripe() );
-    //add( new LensFlareApertureReflection() );
+    add( new LensFlareStripe() );
+    add( new LensFlareApertureReflection() );
     //add( new LensFlarePhotonSpikes( 15 ) );
-    //add( new LensFlareChromaHoop() );
-    //add( new LensFlareChromaFans() );
+    add( new LensFlareChromaHoop() );
+    add( new LensFlareChromaFans() );
     
     
     // special
     
-    add( new LensFlareSunDogs() );
+//    add( new LensFlareSunDogs() );
 }
 
 

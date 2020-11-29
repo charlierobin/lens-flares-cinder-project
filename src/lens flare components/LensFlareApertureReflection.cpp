@@ -11,10 +11,10 @@ LensFlareApertureReflection::LensFlareApertureReflection()
 
 void LensFlareApertureReflection::draw( LensFlare * flare )
 {
-    float scaled = texture_->getWidth() * scale_ * flare->getIntensity();
+    float scaled = texture_->getWidth() * scale_ * flare->intensity_;
     
-    float x = flare->getPosition().x;
-    float y = flare->getPosition().y;
+    float x = flare->position_.x;
+    float y = flare->position_.y;
     
     if ( x >= 0 && x <= getWindowWidth() && y >= 0 && y <= getWindowHeight() ) return;
     if ( x <  -100 || x > getWindowWidth() + 100 || y <  -100 || y > getWindowHeight() + 100 ) return;

@@ -47,13 +47,15 @@
 		CB634393257042F900B4B4B2 /* LensFlareCentralRingFadingOuter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB634391257042F900B4B4B2 /* LensFlareCentralRingFadingOuter.cpp */; };
 		CB6343962570439100B4B4B2 /* LensFlareCentralRingFilled.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB6343942570439100B4B4B2 /* LensFlareCentralRingFilled.cpp */; };
 		CB634399257044B000B4B4B2 /* LensFlareSunDogs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB634397257044B000B4B4B2 /* LensFlareSunDogs.cpp */; };
+		CB816B532573882100E9DBE0 /* CustomLensFlare2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB816B4F2573882100E9DBE0 /* CustomLensFlare2.cpp */; };
+		CB816B542573882100E9DBE0 /* CustomLensFlare3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB816B512573882100E9DBE0 /* CustomLensFlare3.cpp */; };
+		CB816B572573882A00E9DBE0 /* CustomLensFlare1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB816B552573882A00E9DBE0 /* CustomLensFlare1.cpp */; };
 		CB8C68B2256EB1C200546D06 /* octagon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CB8C68B0256EB1C200546D06 /* octagon.jpg */; };
 		CB8C68B3256EB1C200546D06 /* pentagon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CB8C68B1256EB1C200546D06 /* pentagon.jpg */; };
 		CB8C68B5256EB3A000546D06 /* aperture-flare.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CB8C68B4256EB3A000546D06 /* aperture-flare.jpg */; };
 		CB8C68B8256EB72F00546D06 /* LensFlareApertureReflection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB8C68B6256EB72F00546D06 /* LensFlareApertureReflection.cpp */; };
 		CB9C402425614A4700D014C4 /* earth-texture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CB9C402325614A4700D014C4 /* earth-texture.jpg */; };
 		CB9C402625615CEA00D014C4 /* black-and-white-diagonal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CB9C402525615CEA00D014C4 /* black-and-white-diagonal.jpg */; };
-		CB9E12CD256E79670033DFB7 /* CustomLensFlare.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB9E12CB256E79670033DFB7 /* CustomLensFlare.cpp */; };
 		CB9E12D0256E7A6B0033DFB7 /* LensFlareCentralGlow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB9E12CE256E7A6B0033DFB7 /* LensFlareCentralGlow.cpp */; };
 		CB9E12D4256E7E310033DFB7 /* LensFlareElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB9E12D2256E7E310033DFB7 /* LensFlareElement.cpp */; };
 		CB9E12D7256E89CD0033DFB7 /* LensFlareSpreadPentagons.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB9E12D5256E89CD0033DFB7 /* LensFlareSpreadPentagons.cpp */; };
@@ -143,6 +145,12 @@
 		CB6343952570439100B4B4B2 /* LensFlareCentralRingFilled.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LensFlareCentralRingFilled.hpp; sourceTree = "<group>"; };
 		CB634397257044B000B4B4B2 /* LensFlareSunDogs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LensFlareSunDogs.cpp; path = "../src/lens flare components/LensFlareSunDogs.cpp"; sourceTree = "<group>"; };
 		CB634398257044B000B4B4B2 /* LensFlareSunDogs.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = LensFlareSunDogs.hpp; path = "../src/lens flare components/LensFlareSunDogs.hpp"; sourceTree = "<group>"; };
+		CB816B4F2573882100E9DBE0 /* CustomLensFlare2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CustomLensFlare2.cpp; path = ../src/CustomLensFlare2.cpp; sourceTree = "<group>"; };
+		CB816B502573882100E9DBE0 /* CustomLensFlare2.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CustomLensFlare2.hpp; path = ../src/CustomLensFlare2.hpp; sourceTree = "<group>"; };
+		CB816B512573882100E9DBE0 /* CustomLensFlare3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CustomLensFlare3.cpp; path = ../src/CustomLensFlare3.cpp; sourceTree = "<group>"; };
+		CB816B522573882100E9DBE0 /* CustomLensFlare3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CustomLensFlare3.hpp; path = ../src/CustomLensFlare3.hpp; sourceTree = "<group>"; };
+		CB816B552573882A00E9DBE0 /* CustomLensFlare1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CustomLensFlare1.cpp; path = ../src/CustomLensFlare1.cpp; sourceTree = "<group>"; };
+		CB816B562573882A00E9DBE0 /* CustomLensFlare1.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CustomLensFlare1.hpp; path = ../src/CustomLensFlare1.hpp; sourceTree = "<group>"; };
 		CB8C68B0256EB1C200546D06 /* octagon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = octagon.jpg; path = ../resources/octagon.jpg; sourceTree = "<group>"; };
 		CB8C68B1256EB1C200546D06 /* pentagon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = pentagon.jpg; path = ../resources/pentagon.jpg; sourceTree = "<group>"; };
 		CB8C68B4256EB3A000546D06 /* aperture-flare.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "aperture-flare.jpg"; path = "../resources/aperture-flare.jpg"; sourceTree = "<group>"; };
@@ -150,8 +158,6 @@
 		CB8C68B7256EB72F00546D06 /* LensFlareApertureReflection.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = LensFlareApertureReflection.hpp; path = "../src/lens flare components/LensFlareApertureReflection.hpp"; sourceTree = "<group>"; };
 		CB9C402325614A4700D014C4 /* earth-texture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "earth-texture.jpg"; path = "../resources/earth-texture.jpg"; sourceTree = "<group>"; };
 		CB9C402525615CEA00D014C4 /* black-and-white-diagonal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "black-and-white-diagonal.jpg"; path = "../resources/black-and-white-diagonal.jpg"; sourceTree = "<group>"; };
-		CB9E12CB256E79670033DFB7 /* CustomLensFlare.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CustomLensFlare.cpp; path = ../src/CustomLensFlare.cpp; sourceTree = "<group>"; };
-		CB9E12CC256E79670033DFB7 /* CustomLensFlare.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CustomLensFlare.hpp; path = ../src/CustomLensFlare.hpp; sourceTree = "<group>"; };
 		CB9E12CE256E7A6B0033DFB7 /* LensFlareCentralGlow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LensFlareCentralGlow.cpp; sourceTree = "<group>"; };
 		CB9E12CF256E7A6B0033DFB7 /* LensFlareCentralGlow.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LensFlareCentralGlow.hpp; sourceTree = "<group>"; };
 		CB9E12D2256E7E310033DFB7 /* LensFlareElement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LensFlareElement.cpp; path = "../src/lens flare components/LensFlareElement.cpp"; sourceTree = "<group>"; };
@@ -180,8 +186,8 @@
 		CBE630BC257144830071E6E1 /* pollux-mono-fg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "pollux-mono-fg.jpg"; path = "../resources/pollux-mono-fg.jpg"; sourceTree = "<group>"; };
 		CBE630BD257144830071E6E1 /* pollux-mono-bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "pollux-mono-bg.jpg"; path = "../resources/pollux-mono-bg.jpg"; sourceTree = "<group>"; };
 		CBE630BE257144830071E6E1 /* pollux-raw.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "pollux-raw.jpg"; path = "../resources/pollux-raw.jpg"; sourceTree = "<group>"; };
-		CBE630C3257144CC0071E6E1 /* LensFlarePollux.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LensFlarePollux.cpp; path = "../src/lens flare components/LensFlarePollux.cpp"; sourceTree = "<group>"; };
-		CBE630C4257144CC0071E6E1 /* LensFlarePollux.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = LensFlarePollux.hpp; path = "../src/lens flare components/LensFlarePollux.hpp"; sourceTree = "<group>"; };
+		CBE630C3257144CC0071E6E1 /* LensFlarePollux.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LensFlarePollux.cpp; path = ../LensFlarePollux.cpp; sourceTree = "<group>"; };
+		CBE630C4257144CC0071E6E1 /* LensFlarePollux.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = LensFlarePollux.hpp; path = ../LensFlarePollux.hpp; sourceTree = "<group>"; };
 		CBEA706425701B0A0085E5AE /* LensFlareFallOffImagePointer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LensFlareFallOffImagePointer.cpp; path = ../src/falloffs/LensFlareFallOffImagePointer.cpp; sourceTree = "<group>"; };
 		CBEA706525701B0A0085E5AE /* LensFlareFallOffImagePointer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = LensFlareFallOffImagePointer.hpp; path = ../src/falloffs/LensFlareFallOffImagePointer.hpp; sourceTree = "<group>"; };
 		CBEBB2C525719264001F2C35 /* sundog-centre.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "sundog-centre.jpg"; path = "../resources/sundog-centre.jpg"; sourceTree = "<group>"; };
@@ -225,8 +231,12 @@
 				CB9EE01F256FA8CD00A1FAD6 /* falloffs */,
 				CBE05C872560412D006BC8F7 /* LensFlare.cpp */,
 				CBE05C882560412D006BC8F7 /* LensFlare.hpp */,
-				CB9E12CB256E79670033DFB7 /* CustomLensFlare.cpp */,
-				CB9E12CC256E79670033DFB7 /* CustomLensFlare.hpp */,
+				CB816B552573882A00E9DBE0 /* CustomLensFlare1.cpp */,
+				CB816B562573882A00E9DBE0 /* CustomLensFlare1.hpp */,
+				CB816B4F2573882100E9DBE0 /* CustomLensFlare2.cpp */,
+				CB816B502573882100E9DBE0 /* CustomLensFlare2.hpp */,
+				CB816B512573882100E9DBE0 /* CustomLensFlare3.cpp */,
+				CB816B522573882100E9DBE0 /* CustomLensFlare3.hpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -312,6 +322,8 @@
 		CB5A0D8E2570F114002E11F8 /* centres */ = {
 			isa = PBXGroup;
 			children = (
+				CBE630C3257144CC0071E6E1 /* LensFlarePollux.cpp */,
+				CBE630C4257144CC0071E6E1 /* LensFlarePollux.hpp */,
 				CB5A0D9A2570F827002E11F8 /* LensFlareCentrePreComp1.cpp */,
 				CB5A0D9B2570F827002E11F8 /* LensFlareCentrePreComp1.hpp */,
 				CB5A0D972570F76D002E11F8 /* LensFlareCentralRandomFan.cpp */,
@@ -393,8 +405,6 @@
 				CB5A0D8F2570F156002E11F8 /* rings */,
 				CB634397257044B000B4B4B2 /* LensFlareSunDogs.cpp */,
 				CB634398257044B000B4B4B2 /* LensFlareSunDogs.hpp */,
-				CBE630C3257144CC0071E6E1 /* LensFlarePollux.cpp */,
-				CBE630C4257144CC0071E6E1 /* LensFlarePollux.hpp */,
 			);
 			name = "lens flare components";
 			sourceTree = "<group>";
@@ -552,7 +562,6 @@
 				CB5A0DA92571125A002E11F8 /* LensFlareSpreadOctagons.cpp in Sources */,
 				CB9EE025256FAA2000A1FAD6 /* LensFlareFallOffPoint.cpp in Sources */,
 				CB5A0D9C2570F827002E11F8 /* LensFlareCentrePreComp1.cpp in Sources */,
-				CB9E12CD256E79670033DFB7 /* CustomLensFlare.cpp in Sources */,
 				CB634393257042F900B4B4B2 /* LensFlareCentralRingFadingOuter.cpp in Sources */,
 				CB6343962570439100B4B4B2 /* LensFlareCentralRingFilled.cpp in Sources */,
 				0DDED06BB8924D6B9E6818CA /* LensFlaresCinderProjectApp.cpp in Sources */,
@@ -562,17 +571,20 @@
 				CB5A0D932570F399002E11F8 /* LensFlareCentralDisc.cpp in Sources */,
 				CB9EE02E256FD10800A1FAD6 /* LensFlareFallOffEdges.cpp in Sources */,
 				CB9EE02B256FCF4700A1FAD6 /* LensFlareFallOffCircle.cpp in Sources */,
+				CB816B542573882100E9DBE0 /* CustomLensFlare3.cpp in Sources */,
 				CB9E12D4256E7E310033DFB7 /* LensFlareElement.cpp in Sources */,
 				CB5A0D992570F76D002E11F8 /* LensFlareCentralRandomFan.cpp in Sources */,
 				CB6343902570427900B4B4B2 /* LensFlareCentralRingFadingInner.cpp in Sources */,
 				CB5A0D962570F499002E11F8 /* LensFlareCentralPolySpike.cpp in Sources */,
 				CB5A0DA82571125A002E11F8 /* LensFlareSpreadCircles.cpp in Sources */,
+				CB816B572573882A00E9DBE0 /* CustomLensFlare1.cpp in Sources */,
 				CBEA706625701B0A0085E5AE /* LensFlareFallOffImagePointer.cpp in Sources */,
 				CB9E12D0256E7A6B0033DFB7 /* LensFlareCentralGlow.cpp in Sources */,
 				CB8C68B8256EB72F00546D06 /* LensFlareApertureReflection.cpp in Sources */,
 				CB634399257044B000B4B4B2 /* LensFlareSunDogs.cpp in Sources */,
 				CB5A0D9F2570FBE3002E11F8 /* LensFlareSpread.cpp in Sources */,
 				CB9E12E7256EAA6A0033DFB7 /* LensFlareStripe.cpp in Sources */,
+				CB816B532573882100E9DBE0 /* CustomLensFlare2.cpp in Sources */,
 				CB5A0D8C2570F000002E11F8 /* LensFlareCentralSpikeBall.cpp in Sources */,
 				CB4F3CBE256ED7B000ABA833 /* LensFlarePhotonSpikes.cpp in Sources */,
 				CB4F3CC1256ED8D700ABA833 /* LensFlarePhotonSpike.cpp in Sources */,

@@ -25,7 +25,7 @@ void LensFlareSunDogs::draw( LensFlare * flare )
     
         float scaled = ringScale * textureRing_->getWidth() * scale_ * flare->getComputedIntensity();
         
-        gl::translate( flare->getPosition() );
+        gl::translate( flare->position_ );
         
         gl::draw( textureRing_, Rectf( - scaled / 2, - scaled / 2, scaled / 2, scaled / 2 ) );
     }
@@ -37,16 +37,22 @@ void LensFlareSunDogs::draw( LensFlare * flare )
         
         float scaled = textureSide_->getWidth() * scale_ * flare->getComputedIntensity();
         
-        gl::translate( flare->getPosition() );
+        gl::translate( flare->position_ );
         
         
         float scaleFactor1 = ringScale * scale_ * flare->getComputedIntensity();
         float scaleFactor2 = scale_ * flare->getComputedIntensity();
         
         
+        
+        
+        
         gl::translate( vec2( ( ( ( 466 - 256 ) * scaleFactor1 ) + ( ( 256 - 113 ) * scaleFactor2 ) ), 0 ) );
         
         gl::draw( textureSide_, Rectf( - scaled / 2, - scaled / 2, scaled / 2, scaled / 2 ) );
+        
+        
+        
         
         
         gl::translate( vec2( - ( ( ( 466 - 45 ) * scaleFactor1 ) + ( 290 * scaleFactor2 ) ), 0 ) );
@@ -62,7 +68,7 @@ void LensFlareSunDogs::draw( LensFlare * flare )
         float scaledWidth = textureSpike_->getWidth() * scale_ * flare->getComputedIntensity();
         float scaledHeight = textureSpike_->getHeight() * scale_ * flare->getComputedIntensity();
         
-        gl::translate( flare->getPosition() );
+        gl::translate( flare->position_ );
         
         gl::rotate( M_PI / 2 );
         
@@ -79,7 +85,7 @@ void LensFlareSunDogs::draw( LensFlare * flare )
         float scaledWidth = textureSpike_->getWidth() * scale_ * flare->getComputedIntensity();
         float scaledHeight = textureSpike_->getHeight() * scale_ * flare->getComputedIntensity();
         
-        gl::translate( flare->getPosition() );
+        gl::translate( flare->position_ );
         
         gl::draw( textureSpike_, Rectf( 0, - scaledHeight / 4, scaledWidth, scaledHeight / 4 ) );
         
@@ -93,7 +99,7 @@ void LensFlareSunDogs::draw( LensFlare * flare )
         
         float scaled = 0.7 * textureCentre_->getWidth() * scale_ * flare->getComputedIntensity();
         
-        gl::translate( flare->getPosition() );
+        gl::translate( flare->position_ );
         
         gl::draw( textureCentre_, Rectf( - scaled / 2, - scaled / 2, scaled / 2, scaled / 2 ) );
     }
