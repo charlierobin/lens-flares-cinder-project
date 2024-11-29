@@ -2,7 +2,7 @@
 
 Still **very much a work in progress**. Some bits work ... **just**. 
 
-[![Watch the video](https://storage.googleapis.com/charlierobin-1245.appspot.com/videos/work/cinder-lens-flares-poster.jpg)](https://storage.googleapis.com/charlierobin-1245.appspot.com/videos/work/cinder-lens-flares.mp4)
+https://github.com/user-attachments/assets/86833f8e-83ab-453e-acd8-d8312bee750a
 
 Earth texture: https://www.deviantart.com/giallo86/art/Free-HD-20k-x10K-Earth-World-Map-Texture-771486575
 
